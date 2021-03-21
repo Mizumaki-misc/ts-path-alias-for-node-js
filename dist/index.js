@@ -1,8 +1,9 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.helloWorld = void 0;
-const helloWorld = () => {
-    console.log("Hell World");
-};
-exports.helloWorld = helloWorld;
-exports.helloWorld();
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+const helloWorld_1 = require("./subDirectory/helloWorld");
+
+helloWorld_1.helloWorld();

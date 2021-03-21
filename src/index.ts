@@ -1,5 +1,3 @@
-export const helloWorld: () => void = () => {
-  console.log("Hell World");
-};
+import { helloWorld } from "~/subDirectory/helloWorld";
 
 helloWorld();
