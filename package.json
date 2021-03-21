@@ -1,0 +1,13 @@
+{
+  "name": "ts-path-alias-for-node-js",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "npm run build && node dist/index.js",
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "typescript": "^4.2.3"
+  }
+}
