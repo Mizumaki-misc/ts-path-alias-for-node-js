@@ -4,15 +4,21 @@
   "main": "dist/index.js",
   "license": "MIT",
   "scripts": {
-    "start": "npm run build && node dist/index.js",
+    "start": "npm run build:cleanup:tsc && npm run build:tsc && concurrently --kill-others-on-fail --names \"node,typescript\" --prefix-colors \"green,blue\" npm:start:dev npm:start:tsc",
+    "start:tsc": "npm run build:tsc -- --watch",
+    "start:dev": "node-dev --respawn distByTsc/index.js",
     "build": "npm run build:tsc && npm run build:babel",
-    "build:tsc": "tsc",
-    "build:babel": "babel ./distByTsc --out-dir ./dist"
+    "build:tsc": "tsc --build",
+    "build:babel": "babel ./distByTsc --out-dir ./dist",
+    "build:cleanup:tsc": "rm -rf ./distByTsc"
   },
   "devDependencies": {
     "@babel/cli": "^7.13.10",
     "@babel/core": "^7.13.10",
+    "@babel/register": "^7.13.8",
     "babel-plugin-module-resolver": "^4.1.0",
+    "concurrently": "^6.0.0",
+    "node-dev": "^6.5.0",
     "typescript": "^4.2.3"
   }
 }
